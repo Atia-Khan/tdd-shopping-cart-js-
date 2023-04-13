@@ -19,11 +19,11 @@ describe('Cart', () => {
     it('should reflects the totalPrice of items according to their quantity', () => {
         //Arrange
         const cart = new Cart();
-        const itemNo1 = new Items('Louis Handbag', 500, true);
+        const itemNo1 = new Items('Louis Handbag', 500.00, true);
 
         //Act
         cart.addItems(itemNo1, 3);
-        const actual = 1500;
+        const actual = 1500.00;
 
         //Assert
         
