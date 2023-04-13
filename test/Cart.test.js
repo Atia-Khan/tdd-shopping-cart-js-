@@ -11,4 +11,4 @@ describe('Cart', () => {
         expect(cart.items).to.deep.equal([])
         expect(cart.totalPrice).to.be.equal(0)
     })
-})
+});
