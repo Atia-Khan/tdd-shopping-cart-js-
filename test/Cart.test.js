@@ -64,4 +64,24 @@ describe("Cart", () => {
 
     expect(cart.itemizedList()).to.deep.equal(actual);
   });
+
+  // AC 5: Given I have an empty cart, when I add more than one of an item, then I expect totalPrice to reflect both the item price and quantity.
+
+  it(" I expect totalPrice to reflect both the item price and quantity.", () => {
+    //Arrange
+    const cart = new Cart();
+    const itemNo1 = new Item("Louis Handbag", 5000.0, true);
+    const itemNo2 = new Item("Rolex Watch", 25000.0, true);
+    const itemNo3 = new Item('Gucci Shoes', 10000.0, false);
+
+    //Act
+    cart.addItems(itemNo1, 3);
+    cart.addItems(itemNo2, 5);
+    cart.addItems(itemNo3, 2);
+    const actual = 160000.0;
+
+    //Assert
+
+    expect(cart.totalPrice).to.be.equal(actual);
+  });
 });
