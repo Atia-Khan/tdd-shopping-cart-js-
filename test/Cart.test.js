@@ -29,6 +29,25 @@ describe('Cart', () => {
         
         expect(cart.totalPrice).to.be.equal(actual);
     });
+
+    // AC 3: Given I have an empty cart, when I add more than one of an item, then I expect itemQuantities() to show the number of items I have added.
+
+    it('I expect itemQuantities() to show the number of items I have added', () => {
+        //Arrange
+        const cart = new Cart();
+        const itemNo1 = new Items('Louis Handbag', 5000.00, true);
+        const itemNo2 = new Items('Rolex Watch', 24000.0, true)
+
+        //Act
+        cart.addItems(itemNo1, 3);
+        cart.addItems(itemNo2, 5)
+        const actual = ['Louis Handbag - x3', 'Rolex Watch - x5'];
+
+        //Assert
+        
+        expect(cart.itemQuantities()).to.be.equal(actual);
+    });
+
 })
 
 
