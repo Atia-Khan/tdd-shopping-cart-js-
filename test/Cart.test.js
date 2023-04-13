@@ -48,6 +48,25 @@ describe('Cart', () => {
         expect(cart.itemQuantities()).to.deep.equal(actual);
     });
 
+
+    // AC 4: Given I have an empty cart, when I add items, then I expect itemizedList() reflect the items I have added along with their price and quantity.
+
+    it('I expect itemizedList() reflect the items I have added along with their price and quantity.', () => {
+        //Arrange
+        const cart = new Cart();
+        const itemNo1 = new Items('Louis Handbag', 5000.00, true);
+        const itemNo2 = new Items('Rolex Watch', 24000.00, true);
+
+        //Act
+        cart.addItems(itemNo1, 3);
+        cart.addItems(itemNo2, 5)
+        const actual = ['Louis Handbag x3 - $5000.00', 'Rolex Watch x5 - $24000.00'];
+
+        //Assert
+        
+        expect(cart.itemizedList()).to.deep.equal(actual);
+    });
+
 })
 
 
