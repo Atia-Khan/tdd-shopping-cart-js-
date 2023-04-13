@@ -18,4 +18,10 @@ module.exports = class Cart {
       return `${cartItemsObj.itemNo.name} - x${cartItemsObj.quantity}`;
     });
   }
-};
+
+  itemizedList() {
+    return this.items.map((cartItemsObj) => {
+      return `${cartItemsObj.itemNo.name} x${cartItemsObj.quantity} - $${cartItemsObj.itemNo.price}`;
+    });
+  }
+}
