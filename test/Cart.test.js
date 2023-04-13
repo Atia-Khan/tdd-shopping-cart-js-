@@ -45,7 +45,7 @@ describe('Cart', () => {
 
         //Assert
         
-        expect(cart.itemQuantities()).to.be.equal(actual);
+        expect(cart.itemQuantities()).to.deep.equal(actual);
     });
 
 })
