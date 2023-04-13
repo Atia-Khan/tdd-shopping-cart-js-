@@ -100,10 +100,10 @@ describe('Cart', () => {
     cart.addItems(itemNo2, 5); //62500
     cart.addItems(itemNo3, 2);
     cart.addItems(itemNo4, 4); //20000
-    const actual = ['Louis Handbag x3 - $7500.0' ,'Rolex Watch x5 - $62500.0', 'Dior Leather Bag x4 - $20000.0'];
+    const actual = ['Louis Handbag x3 - $7500' ,'Rolex Watch x5 - $62500', 'Dior Leather Bag x4 - $20000'];
 
     //Assert
 
-    expect(cart.onSaleItems()).to.be.equal(actual);
+    expect(cart.onSaleItems()).to.deep.equal(actual);
   });
 });

@@ -10,7 +10,7 @@ module.exports = class Cart {
       quantity: quantity,
     };
     this.items.push(cartItemsObj);
-    
+
     this.totalPrice += cartItemsObj.itemNo.price * cartItemsObj.quantity;
   }
 
@@ -20,9 +20,18 @@ module.exports = class Cart {
     });
   }
 
-  itemizedList() {
-    return this.items.map((cartItemsObj) => {
-      return `${cartItemsObj.itemNo.name} x${cartItemsObj.quantity} - $${cartItemsObj.itemNo.price}`;
-    });
-  }
-}
+    itemizedList() {
+      return this.items.map((cartItemsObj) => {
+        return `${cartItemsObj.itemNo.name} x${cartItemsObj.quantity} - $${cartItemsObj.itemNo.price}`;
+      });
+    }
+
+  onSaleItems() {
+          return this.items.filter(
+            (saleItems) => saleItems.itemNo.onSale).map((cartItemsObj) => {
+            return `${cartItemsObj.itemNo.name} x${cartItemsObj.quantity} - $${
+            ( (cartItemsObj.itemNo.price / 2) * cartItemsObj.quantity)
+      }`;
+      });
+    }
+};
